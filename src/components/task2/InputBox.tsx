@@ -31,7 +31,7 @@ function InputBox({ index, digit, isHighlighted, isError, disabled, setInputRef,
                 onFocus={() => handlers.handleFocus(index)}
                 onPaste={handlers.handlePaste}
                 disabled={disabled}
-                className="w-14 h-16 text-center text-2xl font-semibold bg-gray-50 dark:bg-gray-800 border-2 border-gray-200 dark:border-gray-700 rounded-xl focus:outline-none transition-colors duration-200 disabled:bg-gray-100 dark:disabled:bg-gray-900 disabled:cursor-not-allowed text-transparent"
+                className="w-14 h-16 text-center text-2xl font-semibold bg-card border-2 border-border rounded-xl focus:outline-none transition-colors duration-200 disabled:bg-muted disabled:cursor-not-allowed text-transparent"
                 style={{ caretColor: 'transparent' }}
             />
 
@@ -50,12 +50,12 @@ function InputBox({ index, digit, isHighlighted, isError, disabled, setInputRef,
                                 damping: 30,
                                 duration: 0.2
                             }}
-                            className="text-2xl font-semibold text-gray-800 dark:text-gray-100"
+                            className="text-2xl font-semibold text-foreground"
                         >
                             {digit}
                         </motion.span>
                     ) : (
-                        <span className="text-2xl font-semibold text-gray-300 dark:text-gray-600">
+                        <span className="text-2xl font-semibold text-muted-foreground/50">
                             0
                         </span>
                     )}

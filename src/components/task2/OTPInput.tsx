@@ -93,10 +93,10 @@ export function OTPInput({ onSuccess }: OTPInputProps) {
                     >
                         {/* Title */}
                         <div className="text-center">
-                            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+                            <h2 className="text-2xl font-bold text-foreground mb-2">
                                 Enter Verification Code
                             </h2>
-                            <p className="text-gray-500 dark:text-gray-400">
+                            <p className="text-muted-foreground">
                                 We sent a 6-digit code to your email
                             </p>
                         </div>
@@ -125,7 +125,7 @@ export function OTPInput({ onSuccess }: OTPInputProps) {
                                     ))}
                                 </div>
 
-                                <div className="w-4 h-1 bg-gray-300 dark:bg-gray-600 rounded-full mx-1" />
+                                <div className="w-4 h-1 bg-border rounded-full mx-1" />
 
                                 <div className="flex gap-3">
                                     {[3, 4, 5].map((index) => (
@@ -150,7 +150,7 @@ export function OTPInput({ onSuccess }: OTPInputProps) {
                                         initial={{ opacity: 0, y: -5 }}
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: -5 }}
-                                        className="absolute left-0 right-0 text-center mt-2 text-red-500 dark:text-red-400 text-sm font-medium"
+                                        className="absolute left-0 right-0 text-center mt-2 text-destructive text-sm font-medium"
                                     >
                                         Incorrect code. Please try again.
                                     </motion.p>
@@ -167,17 +167,17 @@ export function OTPInput({ onSuccess }: OTPInputProps) {
                         className="flex flex-col items-center gap-6"
                     >
                         <div className="text-center">
-                            <h2 className="text-2xl font-bold text-gray-800 dark:text-gray-100 mb-2">
+                            <h2 className="text-2xl font-bold text-foreground mb-2">
                                 Welcome!
                             </h2>
-                            <p className="text-gray-500 dark:text-gray-400">
+                            <p className="text-muted-foreground">
                                 Verification successful
                             </p>
                         </div>
 
                         <button
                             onClick={handleReset}
-                            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-gray-600 dark:text-gray-300 bg-gray-100 dark:bg-gray-800 hover:bg-gray-200 dark:hover:bg-gray-700 rounded-lg transition-colors"
+                            className="flex items-center gap-2 px-4 py-2 text-sm font-medium text-muted-foreground bg-muted hover:bg-accent rounded-lg transition-colors"
                         >
                             <RotateCcw className="w-4 h-4" />
                             Reset
