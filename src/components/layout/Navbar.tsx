@@ -1,6 +1,30 @@
-import { NavLink } from 'react-router-dom'
+import { Moon, Sun } from 'lucide-react';
+import { useEffect, useState } from 'react';
+import { NavLink } from 'react-router-dom';
+
+function getInitialTheme(): boolean {
+    if (typeof window === 'undefined') return false;
+
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme) {
+        return savedTheme === 'dark';
+    }
+    return window.matchMedia('(prefers-color-scheme: dark)').matches;
+}
 
 export function Navbar() {
+    const [isDark, setIsDark] = useState(getInitialTheme);
+
+    useEffect(() => {
+        if (isDark) {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        }
+    }, [isDark]);
+
     return (
         <nav className="bg-background border-b border-border">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -48,8 +72,21 @@ export function Navbar() {
                             </NavLink>
                         </div>
                     </div>
+
+                    {/* Dark Mode Toggle */}
+                    <button
+                        onClick={() => setIsDark(!isDark)}
+                        className="p-2 rounded-lg bg-secondary hover:bg-accent transition-colors"
+                        aria-label="Toggle dark mode"
+                    >
+                        {isDark ? (
+                            <Sun className="w-5 h-5 text-foreground" />
+                        ) : (
+                            <Moon className="w-5 h-5 text-foreground" />
+                        )}
+                    </button>
                 </div>
             </div>
         </nav>
-    )
+    );
 }
