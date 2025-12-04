@@ -22,5 +22,19 @@ export default defineConfig([
     rules: {
       '@typescript-eslint/no-explicit-any': 'off',
     },
+    build: {
+      rollupOptions: {
+        output: {
+          manualChunks: {
+            // React core
+            'react-vendor': ['react', 'react-dom', 'react-router-dom'],
+            // CopilotKit (large AI library)
+            'copilotkit': ['@copilotkit/react-core', '@copilotkit/react-ui'],
+            // UI libraries
+            'ui-vendor': ['@radix-ui/react-select', '@radix-ui/react-slot', 'lucide-react'],
+          },
+        },
+      },
+    },
   },
 ])
