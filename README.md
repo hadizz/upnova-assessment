@@ -20,7 +20,7 @@ Trying to do my best with this assessment, you can find the tasks descriptions i
 
 ### Animation & AI
 - **Motion** - Animation library (Framer Motion)
-- **CopilotKit** - AI copilot integration
+- **CopilotKit** - AI copilot integration https://www.copilotkit.ai/
 
 ## Tasks
 
@@ -51,6 +51,17 @@ Interactive todo application with AI chat interface:
    ```bash
    pnpm install
    ```
+
+### CopilotKit
+you need to get api key from https://www.copilotkit.ai/ and get the api key
+
+create env file called `.env`
+
+example
+
+```env
+COPILOT_API_KEY=apikey
+```
 
 ### Development Mode
 Start the development server:
